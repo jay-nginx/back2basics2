@@ -17,20 +17,28 @@ Link to YouTube Video:
 
 What will you require to run these configuration files as-is:
 
-* 1. Ubuntu 18.04 VM with sudo access
-  * Ensure you have the static files (App1, App2, App3, covid-app & jwt-app) available in location "*/opt/services"
+* Ubuntu 18.04 VM with sudo access
+  * Ensure you have the static files (App1, App2, App3, covid-app & jwt-app) available in location *"/opt/services"
   * You have included a hosts file entry;
-  * <local-ip>	example.com www.example.com example123.com www.example123.com 
+  * `< local-ip >	example.com www.example.com example123.com www.example123.com`
 
-* 2. NGINX Plus *(R22)
+* NGINX Plus *(R22)
 
 
-#### Starting with ep1.dashboard.conf
+#### Metrics Dashboard ep1.dashboard.conf
 
-```
-$ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/www.example123.com.key -out /etc/nginx/ssl/www.example123.com.crt
-$ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/www.example123.blog.com.key -out /etc/nginx/ssl/www.example123.blog.com.crt
-```
+This .conf file serves 3 Apps on ports 9001, 9002 & 9003
+Load Balancing is configured on port 9000 ( LB'ing across 9001 & 9002 only )
+API Dashboard is being served on port 8080
+
+Access the Dashboard and edit the "backend_servers"; "Add server" with address 127.0.0.1:9003, click set-state to "Up" and click Add. 
+Access the localhost on port 9000 and view the App3 in the rotation when you refresh.
+
+Useful Links:
+Live Activity Monitoring
+
+
+#### Key-Value Store
 
 #### Editing your hosts file (based on your config/requirement)
 
