@@ -69,10 +69,10 @@ This .conf takes you through the use of key-value store for SSL Management in a 
 
 
 ### Cache Management | cache.management.conf
-This .conf takes you through enabling Caching. 
-With the .conf file included, you can see that we have enabled `proxy_cache_path`
-Within the location block of your server, we have used a few directives to capture a few additional Headers and defined the `proxy_cache` and it's validity. 
-Note: You can't cache content from within the same server block, you have to go out to another server. 
+This .conf takes you through enabling Caching   
+With the .conf file included, you can see that we have enabled `proxy_cache_path`   
+Within the location block of your server, we have used a few directives to capture a few additional Headers and defined the `proxy_cache` and it's validity    
+Note: You can't cache content from within the same server block, you have to go out to another server    
 
 ##### Useful Links:
 * [Content Caching](https://docs.nginx.com/nginx/admin-guide/content-cache/content-caching/)
