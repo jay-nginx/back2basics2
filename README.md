@@ -22,10 +22,25 @@ What will you require to run these configuration files as-is:
   * You have included a hosts file entry;
   `< local-ip >	example.com www.example.com example123.com www.example123.com`
 
-* NGINX Plus *(R22)
+* NGINX Plus *(R22)*
 
 
-#### Metrics Dashboard ep1.dashboard.conf
+### Metrics Dashboard | ep1.dashboard.conf
+
+* This .conf file serves 3 Apps on ports 9001, 9002 & 9003
+* Load Balancing is configured on port 9000 ( LB'ing across 9001 & 9002 only )
+* API Dashboard is being served on port 8080
+
+Access the Dashboard and edit the "backend_servers"; "Add server" with address 127.0.0.1:9003, click set-state to "Up" and click Add. 
+Access the localhost on port 9000 and view the App3 in the rotation when you refresh.
+
+##### Useful Links:
+* [Live Activity Monitoring with N+](https://docs.nginx.com/nginx/admin-guide/monitoring/live-activity-monitoring/)
+* [Stub Status Module for NGINX](http://nginx.org/en/docs/http/ngx_http_stub_status_module.html)
+* [Prometheus Exporter](https://github.com/nginxinc/nginx-prometheus-exporter)
+
+
+### Key-value Store | key.value.store.conf
 
 This .conf file serves 3 Apps on ports 9001, 9002 & 9003
 Load Balancing is configured on port 9000 ( LB'ing across 9001 & 9002 only )
@@ -40,7 +55,6 @@ Access the localhost on port 9000 and view the App3 in the rotation when you ref
 * [Prometheus Exporter](https://github.com/nginxinc/nginx-prometheus-exporter)
 
 
-#### Key-Value Store
 
 #### Editing your hosts file (based on your config/requirement)
 
