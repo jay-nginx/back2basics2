@@ -1,26 +1,31 @@
 # Back to Basics - Episode 2
-This repo has the necessary files to take you through some capabilities you can achieve with NGINX & NGINX Plus. 
-1. Metrics Dashboard - View metrics and add/update upstream servers
-2. Metrics - Look at alternative options for capturing NGINX metrics, stub_status & prometheus integeration. 
-3. Key-value store - Configure IP Allow/Deny List
-4. Key-value store - Dynamic SSL Certificate Management
-5. Cache Management - Configure caching & enable headers to identify if cache was "HIT" or "MISS"
-6. JWT Validation - Generate tokens from https://jwt.io and validate JWT and re-direct based on value from the jwt payload
 
+This repo has the necessary files to take you through capabilities as listed below which you can achieve with NGINX & NGINX Plus. 
 
-The intention of this repo is to demonstrate a specific functionality, please ensure you have necessary checks and security enabled when you use similar config in your Production Environments. 
+1. **Metrics Dashboard** - View metrics and add/update upstream servers *(N+ Only)*
+2. **Metrics** - Look at alternative options for capturing NGINX metrics, stub_status & prometheus integeration *(N+ Only)
+3. **Key-value store** - Configure IP Allow/Deny List *(N+ Only)
+4. **Key-value store** - Dynamic SSL Certificate Management *(N+ Only)
+5. **Cache Management** - Configure caching & enable headers to identify if cache was "HIT" or "MISS"
+6. **JWT Validation** - Generate tokens from https://jwt.io and validate JWT and re-direct based on value from the jwt payload *(N+ Only)
+
 
 Link to YouTube Video:
-* [LINK](https://youtu.be/aeLE988jmlo)
+* [LINK](comming soon !)
 
 ### Prerequisites
 
-What you need to run this locally:
+What will you require to run these configuration files as-is:
 
-1. Ubuntu 18.04 with sudo access ( or other similar supported OS )
-1. NGINX Plus ( version R18 or above )
+* 1. Ubuntu 18.04 VM with sudo access
+  * Ensure you have the static files (App1, App2, App3, covid-app & jwt-app) available in location "*/opt/services"
+  * You have included a hosts file entry;
+  * <local-ip>	example.com www.example.com example123.com www.example123.com 
 
-#### Creating self-signed certificate on your VM
+* 2. NGINX Plus *(R22)
+
+
+#### Starting with ep1.dashboard.conf
 
 ```
 $ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/www.example123.com.key -out /etc/nginx/ssl/www.example123.com.crt
