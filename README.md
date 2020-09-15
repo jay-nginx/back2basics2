@@ -77,9 +77,17 @@ This .conf takes you through enabling Caching
 ##### Useful Links:
 * [Content Caching](https://docs.nginx.com/nginx/admin-guide/content-cache/content-caching/)
 * [A Detailed Guide to Caching: Blog](https://www.nginx.com/blog/nginx-caching-guide/)
-* [$proxy_cache - Directive](http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_cache)
+* [proxy_cache - Directive](http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_cache)
 
 
+### JWT Validation | jwt.validation.conf
+This .conf takes you through configuring JWT Validation.    
+* With the .conf file included, I have followed the details from a Blog Post by Alan Murphy - Link in the Useful Links section below.    
+
+##### Useful Links:
+* [JWTs for Authentication and Content Based Routing](https://www.nginx.com/blog/authentication-content-based-routing-jwts-nginx-plus/)
+* [Setting up JWT: Tech Doco](https://docs.nginx.com/nginx/admin-guide/security-controls/configuring-jwt-authentication/)
+* [auth_jwt - Directive](http://nginx.org/en/docs/http/ngx_http_auth_jwt_module.html)
 
 
 
