@@ -3,11 +3,11 @@
 This repo has the necessary files to take you through capabilities as listed below which you can achieve with NGINX & NGINX Plus. 
 
 1. **Metrics Dashboard** - View metrics and add/update upstream servers *(N+ Only)*
-2. **Metrics** - Look at alternative options for capturing NGINX metrics, stub_status & prometheus integeration *(N+ Only)
-3. **Key-value store** - Configure IP Allow/Deny List *(N+ Only)
-4. **Key-value store** - Dynamic SSL Certificate Management *(N+ Only)
+2. **Metrics** - Look at alternative options for capturing NGINX metrics, stub_status & prometheus integeration *(N+ Only)*
+3. **Key-value store** - Configure IP Allow/Deny List *(N+ Only)*
+4. **Key-value store** - Dynamic SSL Certificate Management *(N+ Only)*
 5. **Cache Management** - Configure caching & enable headers to identify if cache was "HIT" or "MISS"
-6. **JWT Validation** - Generate tokens from https://jwt.io and validate JWT and re-direct based on value from the jwt payload *(N+ Only)
+6. **JWT Validation** - Generate tokens from https://jwt.io and validate JWT and re-direct based on value from the jwt payload *(N+ Only)*
 
 
 Link to YouTube Video:
@@ -18,9 +18,9 @@ Link to YouTube Video:
 What will you require to run these configuration files as-is:
 
 * Ubuntu 18.04 VM with sudo access
-  * Ensure you have the static files (App1, App2, App3, covid-app & jwt-app) available in location *"/opt/services"
+  * Ensure you have the static files (App1, App2, App3, covid-app & jwt-app) available in location *"/opt/services"*
   * You have included a hosts file entry;
-  * `< local-ip >	example.com www.example.com example123.com www.example123.com`
+  `< local-ip >	example.com www.example.com example123.com www.example123.com`
 
 * NGINX Plus *(R22)
 
@@ -34,8 +34,10 @@ API Dashboard is being served on port 8080
 Access the Dashboard and edit the "backend_servers"; "Add server" with address 127.0.0.1:9003, click set-state to "Up" and click Add. 
 Access the localhost on port 9000 and view the App3 in the rotation when you refresh.
 
-Useful Links:
-Live Activity Monitoring
+##### Useful Links:
+* [Live Activity Monitoring with N+](https://docs.nginx.com/nginx/admin-guide/monitoring/live-activity-monitoring/)
+* [Stub Status Module for NGINX](http://nginx.org/en/docs/http/ngx_http_stub_status_module.html)
+* [Prometheus Exporter](https://github.com/nginxinc/nginx-prometheus-exporter)
 
 
 #### Key-Value Store
