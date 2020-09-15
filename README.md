@@ -42,17 +42,20 @@ Access the localhost on port 9000 and view the App3 in the rotation when you ref
 
 ### Key-value Store | key.value.store.conf
 
-This .conf file serves 3 Apps on ports 9001, 9002 & 9003
-Load Balancing is configured on port 9000 ( LB'ing across 9001 & 9002 only )
-API Dashboard is being served on port 8080
+This .conf takes you through a few phases [Please don't use this .conf file as is]
+Step 1: Serving content on PORT 8443 - non-secure
+Step 2: Serving content on PORT 8443 - secure | SSL Cert & Key are stored on disk
+Step 3: Enabled key-value store for storing key & cert files. Variable $ssl_server_name matches the request host name with the name of crt/key
+ * Try accessing www.example123.com, which should throw an error. 
+Step 4: Dynamically add a crt/key for www.example123.com and revist the page again, now to be able to view the content. 
 
 Access the Dashboard and edit the "backend_servers"; "Add server" with address 127.0.0.1:9003, click set-state to "Up" and click Add. 
 Access the localhost on port 9000 and view the App3 in the rotation when you refresh.
 
 ##### Useful Links:
-* [Live Activity Monitoring with N+](https://docs.nginx.com/nginx/admin-guide/monitoring/live-activity-monitoring/)
-* [Stub Status Module for NGINX](http://nginx.org/en/docs/http/ngx_http_stub_status_module.html)
-* [Prometheus Exporter](https://github.com/nginxinc/nginx-prometheus-exporter)
+* [SSL Termination](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-http/)
+* [Dynamic SSL Key Management](https://www.youtube.com/watch?v=aeLE988jmlo&ab_channel=NGINX%2CInc)
+* [$ssl_server_name - Variable](http://nginx.org/en/docs/http/ngx_http_ssl_module.html#var_ssl_server_name)
 
 
 
