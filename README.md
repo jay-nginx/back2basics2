@@ -20,7 +20,7 @@ What will you require to run these configuration files as-is:
 * Ubuntu 18.04 VM with sudo access
   * Ensure you have the static files (App1, App2, App3, covid-app & jwt-app) available in location *"/opt/services"*
   * You have included a hosts file entry;
-  `< local-ip >	example.com www.example.com example123.com www.example123.com`
+  `<internal-ip>	example.com www.example.com example123.com www.example123.com`
 
 * NGINX Plus *(R22)*
 
@@ -42,18 +42,42 @@ Access the localhost on port 9000 and view the App3 in the rotation when you ref
 
 ### Key-value Store | key.value.store.conf
 
-This .conf takes you through a few phases [Please don't use this .conf file as is]
-Step 1: Serving content on PORT 8443 - non-secure
-Step 2: Serving content on PORT 8443 - secure | SSL Cert & Key are stored on disk
-Step 3: Enabled key-value store for storing key & cert files. Variable $ssl_server_name matches the request host name with the name of crt/key
+#### IP Allow/Deny List
+Enable a key-value zone & keyval for the allowlist_zone datastore. 
+`curl -X GET 'http://<internal-ip>:8080/api/6/http/keyvals/allowlist_zone'`
+which should return an empty response `{}`
+Note: Because we are on making the changes on the same VM, we can perform the same task via localhost [127.0.0.1]
+`curl -X POST -d ‘{“<internal-ip>":”1"}' -s 'http://localhost:8080/api/6/http/keyvals/allowlist_zone’`
+- We have now blocked access from internal IP, `1` for Deny and `0` for Allow. 
+Running GET agains the <internal-ip> should now throw a 403
+ `curl -X GET 'http://<internal-ip>:8080/api/6/http/keyvals/allowlist_zone'`
+If you are presented with '403 Forbidden', we have successfully enabled IP Allow/Deny list.  
+
+
+#### SSL Certificate Management
+This .conf takes you through the use of key-value store for SSL Management in a few steps [Please don't use this .conf file as is]
+* Step 1: Serving content on PORT 8443 - non-secure
+* Step 2: Serving content on PORT 8443 - secure | SSL Cert & Key are stored on disk
+* Step 3: Enabled key-value store for storing key & cert files. Variable $ssl_server_name matches the request host name with the name of crt/key
   * Try accessing www.example123.com, which should throw an error. 
-Step 4: Dynamically add a crt/key for www.example123.com and revist the page again, now to be able to view the content. 
+* Step 4: Dynamically add a crt/key for www.example123.com and revist the page again, now to be able to view the content. 
 
 ##### Useful Links:
 * [SSL Termination](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-http/)
-* [Dynamic SSL Key Management](https://www.youtube.com/watch?v=aeLE988jmlo&ab_channel=NGINX%2CInc)
+* [Dynamic SSL Key Management: YouTube](https://www.youtube.com/watch?v=aeLE988jmlo&ab_channel=NGINX%2CInc)
 * [$ssl_server_name - Variable](http://nginx.org/en/docs/http/ngx_http_ssl_module.html#var_ssl_server_name)
 
+
+### Cache Management | cache.management.conf
+This .conf takes you through enabling Caching. 
+With the .conf file included, you can see that we have enabled `proxy_cache_path`
+Within the location block of your server, we have used a few directives to capture a few additional Headers and defined the `proxy_cache` and it's validity. 
+Note: You can't cache content from within the same server block, you have to go out to another server. 
+
+##### Useful Links:
+* [Content Caching](https://docs.nginx.com/nginx/admin-guide/content-cache/content-caching/)
+* [A Detailed Guide to Caching: Blog](https://www.nginx.com/blog/nginx-caching-guide/)
+* [$proxy_cache - Directive](http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_cache)
 
 
 
