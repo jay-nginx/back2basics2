@@ -65,6 +65,7 @@ This .conf takes you through the use of key-value store for SSL Management in a 
 ##### Useful Links:
 * [SSL Termination](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-http/)
 * [Dynamic SSL Key Management: YouTube](https://www.youtube.com/watch?v=aeLE988jmlo&ab_channel=NGINX%2CInc)
+* [Dynamic SSL Key Management: GitHub](https://github.com/jay-nginx/dynamic-ssl-management)
 * [$ssl_server_name - Variable](http://nginx.org/en/docs/http/ngx_http_ssl_module.html#var_ssl_server_name)
 
 
