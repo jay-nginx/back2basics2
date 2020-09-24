@@ -11,7 +11,7 @@ This repo has the necessary files to take you through capabilities as listed bel
 
 
 Link to YouTube Video:
-* [LINK](comming soon !)
+* [YouTube - Video Link](https://youtu.be/S7B_AS_roNI)
 
 ### Prerequisites
 
