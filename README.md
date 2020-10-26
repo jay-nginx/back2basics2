@@ -84,6 +84,13 @@ This .conf takes you through enabling Caching
 ### JWT Validation | jwt.validation.conf
 This .conf takes you through configuring JWT Validation.    
 * With the .conf file included, I have followed the details from a Blog Post by Alan Murphy - Link in the Useful Links section below.    
+`
+# ID - 111
+## http://example.com/index.html?myjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDk0NDg0MDAsIm5hbWUiOiJDcmVhdGUgTmV3IFVzZXIiLCJzdWIiOiJjdXNlciIsImduYW1lIjoid2hlZWwiLCJndWlkIjoiMTAiLCJmdWxsTmFtZSI6IkpvaG4gRG9lIiwidW5hbWUiOiJqZG9lIiwidWlkIjoiMTExIiwic3VkbyI6dHJ1ZSwiZGVwdCI6IklUIiwidXJsIjoiaHR0cDovL2V4YW1wbGUuY29tOjgwODkifQ.mp2ug5m8rP9djpY5O5j6KRG1RM5C8D1DQmDoBkMIPzs
+
+# ID - 222
+## http://example.com/index.html?myjwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDk0NDg0MDAsIm5hbWUiOiJDcmVhdGUgTmV3IFVzZXIiLCJzdWIiOiJjdXNlciIsImduYW1lIjoid2hlZWwiLCJndWlkIjoiMTAiLCJmdWxsTmFtZSI6IkpvaG4gRG9lIiwidW5hbWUiOiJqZG9lIiwidWlkIjoiMjIyIiwic3VkbyI6dHJ1ZSwiZGVwdCI6IklUIiwidXJsIjoiaHR0cDovL2V4YW1wbGUuY29tOjgwODkifQ.fkfXTfAqX6gRnfxlcseCys-nAXtEbYWMFK8lDuBZc9c
+`
 
 ##### Useful Links:
 * [JWTs for Authentication and Content Based Routing](https://www.nginx.com/blog/authentication-content-based-routing-jwts-nginx-plus/)
